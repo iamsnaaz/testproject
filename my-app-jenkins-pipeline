@@ -22,10 +22,11 @@ pipeline{
             expression{
             BRANCH_NAME =='dev' || BRANCH_NAME =='master'
             }
+            }
             steps{
                   echo "Deploying the application"
             }
-        }
+        
     }
 
 }
