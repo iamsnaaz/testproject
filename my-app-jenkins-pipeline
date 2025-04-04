@@ -23,7 +23,7 @@ pipeline{
             BRANCH_NAME =='dev' || BRANCH_NAME =='master'
             }
             steps{
-                  echo "Deploying the applicarion"
+                  echo "Deploying the application"
             }
         }
     }
