@@ -10,19 +10,19 @@ pipeline{
                   echo "Building the application"
             }
         }
-    stage('Test'){
+        stage('Test'){
             when{
             expression{params.executeTests}
-            }
             }
             steps{
                   echo "Testing the application"
             }
-        }
-    stage('Deploy'){
+      }
+       stage('Deploy'){
             steps{
                   echo "deploying application with credentials: ${params.VERSION}"
             }
         }
+     }
 }
 
