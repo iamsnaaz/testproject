@@ -1,0 +1,35 @@
+CODE_CHANGES = getgitchanges()
+pipeline{
+    agent any
+    stages{
+        stage('Build'){
+            when{
+            expresssion{
+            BRANCH_NAME =='dev' && CODE_CHANGES == True
+            }
+            }
+            steps{
+                  echo "Building the application"
+            }
+        }
+    stage('Test'){
+            steps{
+                  echo "Testing the application"
+            }
+        }
+    stage('Deploy'){
+             when{
+            expresssion{
+            BRANCH_NAME =='dev' || BRANCH_NAME =='master'
+            }
+            steps{
+                  echo "Deploying the applicarion"
+            }
+        }
+    }
+post{
+  always{
+        echo "This is a jenkins file"
+  }
+}
+}
