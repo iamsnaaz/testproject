@@ -2,7 +2,6 @@ pipeline{
     agent any
     environment{
         New_Version = "1.3.02"
-         SERVER_CREDENTIALS = credentials("server-credentials")
     }
     stages{
         stage('Build'){
@@ -18,9 +17,11 @@ pipeline{
         }
     stage('Deploy'){
             steps{
+                  withCredentials([usernamePassword(credentialsId: 'server-credentials', passwordVariable: 'pwd', usernameVariable: 'uname')]) {
                   echo "Deploy stage"
-                  echo "deploying application with credentials: ${server-credentials}"
-                  sh "${server-credentials}"
+                  echo "deploying application with credentials : $"uname" $"pwd"
+                    }
+                 
             }
         }
     }
@@ -30,4 +31,3 @@ post{
   }
 }
 }
-
