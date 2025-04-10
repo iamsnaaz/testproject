@@ -19,7 +19,7 @@ pipeline{
             steps{
                   withCredentials([usernamePassword(credentialsId: 'server-credentials', passwordVariable: 'pwd', usernameVariable: 'uname')]) {
                   echo "Deploy stage"
-                  echo "deploying application with credentials : ${uname} ${pwd}
+                  echo "deploying application with credentials : ${uname} ${pwd}"
                     }
                  
             }
