@@ -4,14 +4,14 @@ pipeline{
         New_Version = "1.3.02"
     }
     stages{
-      stage ('Windows') {
-   steps{scripts{
-         if(fileExists('C:/ProgramData/Jenkins/.jenkins/workspace/my-pipeline/pom.xml')) {
-        echo 'Found pom.xml'} 
-   }
-    }
-}
-        stage('Build'){
+      stage ('Checking file') {
+		steps{scripts{
+			if(fileExists('C:/ProgramData/Jenkins/.jenkins/workspace/my-pipeline/pom.xml')) {
+					echo 'Found pom.xml'} 
+			}
+		}
+      }
+      stage('Build'){
             steps{
                   echo "Build stage"
                   echo "Building version: ${New_Version}"
@@ -26,7 +26,6 @@ pipeline{
             steps{
                   withCredentials([usernamePassword(credentialsId: 'server-credentials', passwordVariable: 'pwd', usernameVariable: 'uname')]) {
                   echo "Deploy stage"
-                  echo "deploying application with credentials : ${uname} ${pwd}"
                     }
                  
             }
