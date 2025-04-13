@@ -5,7 +5,7 @@ pipeline{
     }
     stages{
       stage('Windows') {
-    if (fileExists('C:\ProgramData\Jenkins\.jenkins\workspace\my-pipeline')) {
+    if (fileExists('C:/ProgramData/Jenkins/.jenkins/workspace/my-pipeline/pom.xml')) {
         echo 'Found pom.xml'
     }
 }
