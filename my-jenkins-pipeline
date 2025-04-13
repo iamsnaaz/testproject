@@ -19,8 +19,8 @@ pipeline{
          }
         stage('Build'){
             steps{
-                  echo "Building version: ${New_Version}"
-				  bat "mvn -Dmaven.test.failure.ignore=true clean package"
+			bat "mvn -Dmaven.test.failure.ignore=true clean package"
+			echo "Building version: ${New_Version}"
             }
         }
         stage('Test'){
