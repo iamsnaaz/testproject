@@ -38,8 +38,9 @@ pipeline{
         }
     }
 	post{
-		always{
-			echo "This is a jenkins file"
+		success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
 		}
 	}
 }
