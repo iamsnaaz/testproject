@@ -4,13 +4,6 @@ pipeline{
         New_Version = "1.3.02"
     }
     stages{
-      //stage ('Checking file') {
-		//steps{scripts{
-			//if(fileExists('C:/ProgramData/Jenkins/.jenkins/workspace/my-pipeline/pom.xml')){
-			//		echo 'Found pom.xml'} 
-			//}
-		//}
-     // }"""
 	stage("check file"){
             steps{
                     script{
