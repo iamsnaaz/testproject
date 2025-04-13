@@ -4,11 +4,11 @@ pipeline{
         New_Version = "1.3.02"
     }
     stages{
-      node('Windows') {
+      stage {node('Windows') {
     if (fileExists('C:/ProgramData/Jenkins/.jenkins/workspace/my-pipeline/pom.xml')) {
         echo 'Found pom.xml'
     }
-}
+}}
         stage('Build'){
             steps{
                   echo "Build stage"
